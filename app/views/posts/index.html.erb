@@ -1,37 +1,49 @@
-<p id="notice"><%= notice %></p>
+<!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url(<%= image_path 'post-bg.jpg' %>)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<h1>Listing Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <% unless current_user.blank? %>
-          <% if current_user.id == post.user.id %>
-            <td><%= link_to 'Show', post %></td>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% else %>
-            <td>These are not your posts</td>
-          <% end %>
-        <% end %>
-      </tr>
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <%= link_to post do %>
+                      <h2 class="section-heading"><%= post.title %></h2>
+                    <% end %>
+                     <p class="post-meta">Posted by <%= post.user.full_name %> on September 24, 2014</p>
+                      <% unless current_user.blank? %>
+                        <% if current_user.id == post.user.id %>
+                          <%= link_to 'Show', post %>
+                          <%= link_to 'Edit', edit_post_path(post) %>
+                          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <% else %>
+                        <% end %>
+                      <% end %>
+                </div>
+            </div>
+            
+        </div>
+    </article>
+       
+       
+    <hr>
     <% end %>
-  </tbody>
-</table>
-
 <br>
+<ul class="pager">
+  <li class="next">
+    <%= will_paginate @posts %>
+  </li>
+</ul>
 
-<%= link_to 'New Post', new_post_path %>
-<br>
-<%= will_paginate @posts %>
