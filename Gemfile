@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+gem 'will_paginate', '~> 3.0.6'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
