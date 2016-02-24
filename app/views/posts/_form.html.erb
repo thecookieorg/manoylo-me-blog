@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= simple_form_for @post do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,14 +12,12 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.input :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :body %><br>
-    <%= f.text_area :body, class: "form-control" %>
+    <%= f.input :body, as: :wysihtml5, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit %>
+    <%= f.button :submit %>
   </div>
 <% end %>

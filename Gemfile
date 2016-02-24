@@ -17,11 +17,14 @@ gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'will_paginate', '~> 3.0.6'
+gem 'bootstrap-wysihtml5-rails'
+gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks' --> I also removed //= require bootstrap-wysihtml5 from application.js
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

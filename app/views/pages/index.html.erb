@@ -7,18 +7,44 @@
                     <div class="site-heading">
                         <h1>Welcome, stranger</h1>
                         <hr class="small">
-                        <span class="subheading">To a place where I write random sh*t.</span>
+                        <span class="subheading">This is a place where I write random sh*t.</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-preview">
+                <%= link_to pages_about_path do %>
+                  <h2 class="post-title read_this">I Build Businesses.</h2>
+                <% end %>
+                <p>I'm an immigrant living in beautiful British Columbia since 2011. I've been building businesses from scratch my entire life. I started my first business back in 2003, building websites for small businesses. I am passionate about a lot of things: my future Mrs. Manoylo, my family, my dog, building businesses from scratch, sales, writting code, making money and having fun doing it.</p>
+                <ul class="pager">
+                    <li class="next">
+                        <%= link_to pages_about_path do %>
+                            Read My Story &rarr;
+                        <% end %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    <hr>
+    
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-md-12">
+                <div style="text-align: center; margin-top: 60px; margin-bottom: 30px;">
+                    <h1 class="post-title read_this">Read This</h1>
+                </div>
                 <% @posts.each do |post| %>
+                    <div class="col-md-4">
                     <div class="post-preview">
                         <%= link_to post do %>
                             <h2 class="post-title">
@@ -28,19 +54,20 @@
                                 Problems look mighty small from 150 miles up
                             </h3>-->
                         <% end %>
-                        <p class="post-meta">Posted by <%= post.user.full_name %> on <%= post.created_at.in_time_zone.strftime("%D") %></p>
+                        <p class="post-meta">Posted by <%= post.user.full_name %> on <%= post.created_at.strftime("%D") %></p>
                     </div>
-                    <hr>
+                    </div>
                 <% end %>
                 
                 <!-- Pager -->
-                <ul class="pager">
+                <ul class="pager" style="margin-top: 240px;">
                     <li class="next">
                         <%= link_to posts_path do %>
                             All Posts &rarr;
                         <% end %>
                     </li>
                 </ul>
+            
             </div>
         </div>
     </div>

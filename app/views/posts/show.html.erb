@@ -18,13 +18,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-                      <h2 class="section-heading"><%= @post.title %></h2>
-                    
-                     <p class="post-meta">Posted by <%= @post.user.full_name %> on <%= @post.created_at.in_time_zone.strftime("%D") %></p>
-                     <hr>
-                     <p><%= @post.body %></p>
-                     <%= link_to 'Back', posts_path %>
+                    <h2 class="section-heading"><%= @post.title %> <small class="back"><%= link_to '[Back]', posts_path %></small></h2>
+                    <p class="post-meta">Posted by <%= @post.user.full_name %> on <%= @post.created_at.in_time_zone.strftime("%D") %></p>
+                    <hr>
+                    <p><%= @post.body.html_safe %></p>
                 </div>
             </div>
         </div>

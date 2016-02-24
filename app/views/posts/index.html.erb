@@ -12,7 +12,7 @@
             </div>
         </div>
     </header>
-
+    
     <% @posts.each do |post| %>
     <!-- Post Content -->
     <article>
@@ -23,6 +23,13 @@
                       <h2 class="section-heading"><%= post.title %></h2>
                     <% end %>
                      <p class="post-meta" style="color: grey; margin-top: -10px;"><em>Posted by <%= post.user.full_name %> on <%= post.created_at.strftime("%A %B %d") %></em></p>
+                     <p><%= truncate(post.body, length: 370, escape: false) %></p>
+                     <ul class="pager">
+                      <li class="next">
+                        <%= link_to 'Read More', post %>
+                      </li>
+                    </ul>
+                     <br>
                       <% unless current_user.blank? %>
                         <% if current_user.id == post.user.id %>
                           <%= link_to 'Show', post %>
