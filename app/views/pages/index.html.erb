@@ -28,7 +28,7 @@
                                 Problems look mighty small from 150 miles up
                             </h3>-->
                         <% end %>
-                        <p class="post-meta">Posted by <%= post.user.full_name %> on September 24, 2014</p>
+                        <p class="post-meta">Posted by <%= post.user.full_name %> on <%= post.created_at.in_time_zone.strftime("%D") %></p>
                     </div>
                     <hr>
                 <% end %>
@@ -36,7 +36,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
+                        <%= link_to posts_path do %>
+                            All Posts &rarr;
+                        <% end %>
                     </li>
                 </ul>
             </div>

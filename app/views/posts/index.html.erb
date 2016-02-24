@@ -22,7 +22,7 @@
                     <%= link_to post do %>
                       <h2 class="section-heading"><%= post.title %></h2>
                     <% end %>
-                     <p class="post-meta">Posted by <%= post.user.full_name %> on September 24, 2014</p>
+                     <p class="post-meta" style="color: grey; margin-top: -10px;"><em>Posted by <%= post.user.full_name %> on <%= post.created_at.strftime("%A %B %d") %></em></p>
                       <% unless current_user.blank? %>
                         <% if current_user.id == post.user.id %>
                           <%= link_to 'Show', post %>
