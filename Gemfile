@@ -8,6 +8,7 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -23,6 +24,7 @@ gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.
 gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-wysihtml5-rails'
 gem 'simple_form'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
